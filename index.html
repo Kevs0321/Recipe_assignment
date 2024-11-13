@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Recipe Assignment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Recipes</h1>
+    </header>
+    <main>
+        <!-- Recipe List Section -->
+        <section id="recipe-list">
+            <h2>Choose your recipe</h2>
+            <select id="recipe-dropdown"></select>
+        </section>
+
+        <!-- Recipe Details Section -->
+        <section id="recipe-details" class="hidden">
+            <h2 id="recipe-title"></h2>
+            <img id="recipe-image" alt="Recipe Image"/>
+            <p id="recipe-description"></p>
+            <p><strong>Cuisine:</strong> <span id="recipe-cuisine"></span></p>
+            <p><strong>Difficulty:</strong> <span id="recipe-difficulty"></span></p>
+            <p><strong>Servings:</strong> <span id="recipe-servings"></span> <button id="double-servings">Double It</button></p>
+            <p><strong>Prep Time:</strong> <span id="recipe-prep-time"></span></p>
+            <p><strong>Cook Time:</strong> <span id="recipe-cook-time"></span></p>
+
+            <h3>Ingredients</h3>
+            <ul id="recipe-ingredients"></ul>
+            <button id="convert-units">Convert Units</button>
+
+            <h3>Instructions</h3>
+            <ol id="recipe-instructions"></ol>
+        </section>
+    </main>
+
+    <!-- Link JavaScript file -->
+    <script src="scripts.js" defer></script>
+</body>
+</html>
