@@ -75,6 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         displayIngredients(recipe.ingredients);
         displayInstructions(recipe.instructions);
+        displayNutrition(recipe.nutritionalInfo);
+        displayTags(recipe.tags);
     }
 
     // Format time to display hours and minutes if > 60
@@ -102,16 +104,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Double servings and ingredients
+    // Double servings, ingredients, and nutritional info
     doubleServingsButton.onclick = () => {
         if (currentRecipe) {
-            currentRecipe.servings *= 2;
-            currentRecipe.ingredients.forEach(ingredient => {
-                ingredient.amount *= 2;
-            });
-            recipeServings.textContent = currentRecipe.servings;
-            displayIngredients(currentRecipe.ingredients);
+        // Double the servings
+        currentRecipe.servings *= 2;
+        recipeServings.textContent = currentRecipe.servings;
+
+        // Double each ingredient amount
+        currentRecipe.ingredients.forEach(ingredient => {
+            ingredient.amount *= 2;
+        });
+        displayIngredients(currentRecipe.ingredients);
+
+        // Double the nutritional information values
+        for (const key in currentRecipe.nutritionalInfo) {
+            currentRecipe.nutritionalInfo[key] *= 2;
         }
+        displayNutrition(currentRecipe.nutritionalInfo);
+        }
+    };
+
+    // Display nutritional information
+    function displayNutrition(nutritionalInfo) {
+        const recipeNutrition = document.getElementById('recipe-nutrition');
+            recipeNutrition.innerHTML = ''; // Clear any existing content
+
+    // Create list items for each nutritional attribute
+        for (const [key, value] of Object.entries(nutritionalInfo)) {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${capitalizeFirstLetter(key)}: ${value}`;
+            recipeNutrition.appendChild(listItem);
+        }
+    };
+
+    // Display tags
+    function displayTags(tags) {
+        const recipeTags = document.getElementById('recipe-tags');
+        recipeTags.textContent = tags.join(', '); // Display tags as a comma-separated string
+    };
+
+    // Helper function to capitalize the first letter of each nutritional attribute
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
     };
 
     // Convert units between metric and imperial
