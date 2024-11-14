@@ -172,6 +172,11 @@ button:hover {
 
 /* Small screens/mobile adjustments */
 @media (max-width: 767px) {
+    .nav-links {
+        flex-direction: column; 
+        gap: 5px;
+    }
+
     #recipe-dropdown {
         width: 100%;
         font-size: 1em;
@@ -187,12 +192,5 @@ button:hover {
 
     button {
         font-size: 0.9em;
-    }
-}
-
-@media (max-width: 767px) {
-    .nav-links {
-        flex-direction: column; 
-        gap: 5px;
     }
 }
