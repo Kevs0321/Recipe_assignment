@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Display nutritional information
     function displayNutrition(nutritionalInfo) {
         const recipeNutrition = document.getElementById('recipe-nutrition');
-            recipeNutrition.innerHTML = ''; // Clear any existing content
+            recipeNutrition.innerHTML = ''; 
 
     // Create list items for each nutritional attribute
         for (const [key, value] of Object.entries(nutritionalInfo)) {
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Display tags
     function displayTags(tags) {
         const recipeTags = document.getElementById('recipe-tags');
-        recipeTags.textContent = tags.join(', '); // Display tags as a comma-separated string
+        recipeTags.textContent = tags.join(', '); 
     };
 
     // Helper function to capitalize the first letter of each nutritional attribute
